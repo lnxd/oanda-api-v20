@@ -331,7 +331,7 @@ definitions = {
                                     "Order’s instrument",
         "UNITS_LIMIT_EXCEEDED": "The units specified exceeds the maximum "
                                 "number of units allowed",
-        "UNITS_MIMIMUM_NOT_MET": "The units specified is less than the "
+        "UNITS_MINIMUM_NOT_MET": "The units specified is less than the "
                                  "minimum number of units required",
         "PRICE_MISSING": "The price has not been specified",
         "PRICE_INVALID": "The price specifed is invalid",
