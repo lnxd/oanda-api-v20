@@ -584,7 +584,7 @@ definitions = {
             "The Trailing Stop Loss on fill specified does not provide a "
             "TriggerCondition",
         "TRAILING_STOP_LOSS_ON_FILL_TRIGGER_CONDITION_INVALID":
-            "The Tailing Stop Loss on fill specifies an invalid "
+            "The Trailing Stop Loss on fill specifies an invalid "
             "TriggerCondition",
         "CLOSE_TRADE_TYPE_MISSING": "The request to close a Trade does not "
                                     "specify a full or partial close",

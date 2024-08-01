@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = getattr(sys.modules["oandapyV20"], "__title__")
+project = getattr(sys.modules['oandapyV20'], "__title__")
 copyright = getattr(sys.modules["oandapyV20"], "__copyright__")
 author = getattr(sys.modules["oandapyV20"], "__author__")
 

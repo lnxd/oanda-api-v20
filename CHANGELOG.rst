@@ -176,6 +176,6 @@ Version 0.2.0
 2016/11/15:
 
           * first release with coverage of all endpoints except the 'forexlabs'
-          * definitions covered as in the development documeintation
-          * types representing data types as in the development documeintation
+          * definitions covered as in the development documentation
+          * types representing data types as in the development documentation
           * contrib.requests: classes to construct data for requestbodies
