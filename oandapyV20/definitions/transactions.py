@@ -24,9 +24,14 @@ definitions = {
         "TAKE_PROFIT_ORDER_REJECT": "Take Profit Order Reject Transaction",
         "STOP_LOSS_ORDER": "Stop Loss Order Transaction",
         "STOP_LOSS_ORDER_REJECT": "Stop Loss Order Reject Transaction",
+        "GUARANTEED_STOP_LOSS_ORDER": "Guaranteed Stop Loss Order Transaction",
+        "GUARANTEED_STOP_LOSS_ORDER_REJECT": "Guaranteed Stop Loss Order Reject Transaction",
         "TRAILING_STOP_LOSS_ORDER": "Trailing Stop Loss Order Transaction",
         "TRAILING_STOP_LOSS_ORDER_REJECT": "Trailing Stop Loss Order "
                                            "Reject Transaction",
+        "ONE_CANCELS_ALL_ORDER": "One Cancels All Order Transaction",
+        "ONE_CANCELS_ALL_ORDER_REJECT": "One Cancels All Order Reject Transaction",
+        "ONE_CANCELS_ALL_ORDER_TRIGGERED": "One Cancels All Order Trigger Transaction",
         "ORDER_FILL": "Order Fill Transaction",
         "ORDER_CANCEL": "Order Cancel Transaction",
         "ORDER_CANCEL_REJECT": "Order Cancel Reject Transaction",
@@ -43,6 +48,7 @@ definitions = {
         "MARGIN_CALL_EXIT": "Margin Call Exit Transaction",
         "DELAYED_TRADE_CLOSURE": "Delayed Trade Closure Transaction",
         "DAILY_FINANCING": "Daily Financing Transaction",
+        "DIVIDEND_ADJUSTMENT": "Dividend Adjustment Transaction",
         "RESET_RESETTABLE_PL": "Reset Resettable PL Transaction",
     },
     "FundingReason": {
@@ -148,7 +154,7 @@ definitions = {
                                         "however the account is configured "
                                         "to not allow new positions to be "
                                         "created.",
-        "ACCOUNT_ORDER_CREATION_LOCKED": "Filling the Order wasn’t possible "
+        "ACCOUNT_ORDER_CREATION_LOCKED": "Filling the Order wasn't possible "
                                          "because it required the creation "
                                          "of a dependent Order and the "
                                          "Account is locked for Order "
@@ -160,21 +166,21 @@ definitions = {
                           "of the client.",
         "MIGRATION": "The Order cancelled because it is being migrated to "
                      "another account.",
-        "MARKET_HALTED": "Filling the Order wasn’t possible because the "
-                         "Order’s instrument was halted.",
+        "MARKET_HALTED": "Filling the Order wasn't possible because the "
+                         "Order's instrument was halted.",
         "LINKED_TRADE_CLOSED": "The Order is linked to an open Trade that "
                                "was closed.",
         "TIME_IN_FORCE_EXPIRED": "The time in force specified for this order "
                                  "has passed.",
-        "INSUFFICIENT_MARGIN": "Filling the Order wasn’t possible because "
-                               "the Account had insufficient margin.",
+        "INSUFFICIENT_MARGIN": "Filling the Order wasn't possible because "
+                                "the Account had insufficient margin.",
         "FIFO_VIOLATION": "Filling the Order would have resulted in a FIFO "
                           "violation.",
         "BOUNDS_VIOLATION": "Filling the Order would have violated the "
-                            "Order’s price bound.",
+                            "Order's price bound.",
         "CLIENT_REQUEST_REPLACED": "The Order was cancelled for replacement "
                                    "at the request of the client.",
-        "INSUFFICIENT_LIQUIDITY": "Filling the Order wasn’t possible "
+        "INSUFFICIENT_LIQUIDITY": "Filling the Order wasn't possible "
                                   "because enough liquidity available.",
         "TAKE_PROFIT_ON_FILL_GTD_TIMESTAMP_IN_PAST":
             "Filling the Order would have resulted in the creation "
@@ -200,16 +206,16 @@ definitions = {
             "specified distance.",
         "STOP_LOSS_ON_FILL_REQUIRED":
             "Filling the Order would not result in the creation of Stop "
-            "Loss Order, however the Account’s configuration requires that "
+            "Loss Order, however the Account's configuration requires that "
             "all Trades have a Stop Loss Order attached to them",
         "STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED":
             "Filling the Order would not result in the creation of a "
-            "guaranteed Stop Loss Order, however the Account’s configuration "
+            "guaranteed Stop Loss Order, however the Account's configuration "
             "requires that all Trades have a guaranteed Stop Loss Order "
             "attached to them",
         "STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED":
             "Filling the Order would result in the creation of a guaranteed "
-            "Stop Loss Order, however the Account’s configuration does not "
+            "Stop Loss Order, however the Account's configuration does not "
             "allow guaranteed Stop Loss Orders",
         "STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET":
             "Filling the Order would result in the creation of a guaranteed "
@@ -218,11 +224,11 @@ definitions = {
         "STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED":
             "Filling the Order would result in the creation of a guaranteed "
             "Stop Loss Order with trigger price and number of units that "
-            "that violates the account’s guaranteed Stop Loss Order level "
+            "that violates the account's guaranteed Stop Loss Order level "
             "restriction",
         "STOP_LOSS_ON_FILL_GUARANTEED_HEDGING_NOT_ALLOWED":
             "Filling the Order would result in the creation of a guaranteed "
-            "Stop Loss Order for a hedged Trade, however the Account’s "
+            "Stop Loss Order for a hedged Trade, however the Account's "
             "configuration does not allow guaranteed Stop Loss Orders for "
             "hedged Trades/Positions.",
         "STOP_LOSS_ON_FILL_TIME_IN_FORCE_INVALID":
@@ -246,7 +252,7 @@ definitions = {
         "CLIENT_TRADE_ID_ALREADY_EXISTS":
             "Filling the Order would result in the creation of a "
             "new Open Trade with a client Trade ID already in use.",
-        "POSITION_CLOSEOUT_FAILED": "Closing out a position wasn’t "
+        "POSITION_CLOSEOUT_FAILED": "Closing out a position wasn't "
                                     "fully possible.",
         "OPEN_TRADES_ALLOWED_EXCEEDED":
             "Filling the Order would cause the maximum open trades "
@@ -267,8 +273,8 @@ definitions = {
             "already in use.",
         "POSITION_SIZE_EXCEEDED":
             "Filling the Order would have resulted in the "
-            "Account’s maximum position size limit being exceeded "
-            "for the Order’s instrument.",
+            "Account's maximum position size limit being exceeded "
+            "for the Order's instrument.",
         "HEDGING_GSLO_VIOLATION":
             "Filling the Order would result in the creation of a Trade, "
             "however there already exists an opposing (hedged) Trade that "
@@ -281,16 +287,19 @@ definitions = {
     },
     "MarketOrderMarginCloseoutReason": {
         "MARGIN_CHECK_VIOLATION": "Trade closures resulted from violating "
-                                  "OANDA’s margin policy",
+                                  "OANDA's margin policy",
         "REGULATORY_MARGIN_CALL_VIOLATION":
             "Trade closures came from a margin closeout event resulting "
-            "from regulatory conditions placed on the Account’s margin call"
+            "from regulatory conditions placed on the Account's margin call",
+        "REGULATORY_MARGIN_CHECK_VIOLATION":
+            "Trade closures resulted from violating the margin policy imposed "
+            "by regulatory requirements"
     },
     "TransactionRejectReason": {
         "INTERNAL_SERVER_ERROR": "An unexpected internal server error has "
                                  "occurred",
         "INSTRUMENT_PRICE_UNKNOWN": "The system was unable to determine the "
-                                    "current price for the Order’s instrument",
+                                    "current price for the Order's instrument",
         "ACCOUNT_NOT_ACTIVE": "The Account is not active",
         "ACCOUNT_LOCKED": "The Account is locked",
         "ACCOUNT_ORDER_CREATION_LOCKED": "The Account is locked for Order "
@@ -328,7 +337,7 @@ definitions = {
         "UNITS_INVALID": "Order units specified are invalid",
         "UNITS_PRECISION_EXCEEDED": "The units specified contain more "
                                     "precision than is allowed for the "
-                                    "Order’s instrument",
+                                    "Order's instrument",
         "UNITS_LIMIT_EXCEEDED": "The units specified exceeds the maximum "
                                 "number of units allowed",
         "UNITS_MINIMUM_NOT_MET": "The units specified is less than the "
@@ -358,7 +367,7 @@ definitions = {
         "PRICE_BOUND_INVALID": "The price bound specified is invalid",
         "PRICE_BOUND_PRECISION_EXCEEDED": "The price bound specified contains "
                                           "more precision than is allowed for "
-                                          "the Order’s instrument",
+                                          "the Order's instrument",
         "ORDERS_ON_FILL_DUPLICATE_CLIENT_ORDER_IDS":
             "Multiple Orders on fill share the same client Order ID",
         "TRADE_ON_FILL_CLIENT_EXTENSIONS_NOT_SUPPORTED":
@@ -403,7 +412,7 @@ definitions = {
             "The Take Profit on fill specified contains an invalid price",
         "TAKE_PROFIT_ON_FILL_PRICE_PRECISION_EXCEEDED":
             "The Take Profit on fill specified contains a price with more "
-            "precision than is allowed by the Order’s instrument",
+            "precision than is allowed by the Order's instrument",
         "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_MISSING":
             "The Take Profit on fill specified does not provide a TimeInForce",
         "TAKE_PROFIT_ON_FILL_TIME_IN_FORCE_INVALID":
@@ -437,7 +446,7 @@ definitions = {
             "that is within the current tradeable spread.",
         "STOP_LOSS_ORDER_GUARANTEED_NOT_ALLOWED":
             "An attempt was made to create a guaranteed Stop Loss Order, "
-            "however the Account’s configuration does not allow guaranteed "
+            "however the Account's configuration does not allow guaranteed "
             "Stop Loss Orders.",
         "STOP_LOSS_ORDER_GUARANTEED_HALTED_CREATE_VIOLATION":
             "An attempt was made to create a guaranteed Stop Loss Order "
@@ -448,25 +457,25 @@ definitions = {
         "STOP_LOSS_ORDER_GUARANTEED_HEDGING_NOT_ALLOWED":
             "An attempt was made to create a guaranteed Stop Loss Order on "
             "a hedged Trade (ie there is an existing open Trade in the "
-            "opposing direction), however the Account’s configuration does "
+            "opposing direction), however the Account's configuration does "
             "not allow guaranteed Stop Loss Orders for hedged "
             "Trades/Positions.",
         "STOP_LOSS_ORDER_GUARANTEED_MINIMUM_DISTANCE_NOT_MET":
             "An attempt was made to create a guaranteed Stop Loss Order, "
             "however the distance between the current price and the trigger "
-            "price does not meet the Account’s configured "
+            "price does not meet the Account's configured "
             "minimumGuaranteedStopLossDistance.",
         "STOP_LOSS_ORDER_NOT_CANCELABLE":
             "An attempt was made to cancel a Stop Loss Order, however the "
-            "Account’s configuration requires every Trade have an associated "
+            "Account's configuration requires every Trade have an associated "
             "Stop Loss Order.",
         "STOP_LOSS_ORDER_NOT_REPLACEABLE":
             "An attempt was made to cancel and replace a Stop Loss Order, "
-            "however the Account’s configuration prevents the modification "
+            "however the Account's configuration prevents the modification "
             "of Stop Loss Orders.",
         "STOP_LOSS_ORDER_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED":
             "An attempt was made to create a guaranteed Stop Loss Order, "
-            "however doing so would exceed the Account’s configured "
+            "however doing so would exceed the Account's configured "
             "guaranteed StopLoss Order level restriction volume.",
         "STOP_LOSS_ORDER_PRICE_AND_DISTANCE_BOTH_SPECIFIED":
             "The Stop Loss Order request contains both the price and "
@@ -476,17 +485,17 @@ definitions = {
             "distance fields.",
         "STOP_LOSS_ON_FILL_REQUIRED_FOR_PENDING_ORDER":
             "An attempt to create a pending Order was made with no Stop "
-            "Loss Order on fill specified and the Account’s configuration "
+            "Loss Order on fill specified and the Account's configuration "
             "requires that every Trade have an associated Stop Loss Order.",
         "STOP_LOSS_ON_FILL_GUARANTEED_NOT_ALLOWED":
             "An attempt to create a pending Order was made with a Stop "
             "Loss Order on fill that was explicitly configured to be "
-            "guaranteed, however the Account’s configuration does not allow "
+            "guaranteed, however the Account's configuration does not allow "
             "guaranteed Stop Loss Orders.",
         "STOP_LOSS_ON_FILL_GUARANTEED_REQUIRED":
             "An attempt to create a pending Order was made with a Stop Loss "
             "Order on fill that was explicitly configured to be not "
-            "guaranteed, however the Account’s configuration requires "
+            "guaranteed, however the Account's configuration requires "
             "guaranteed Stop Loss Orders.",
         "STOP_LOSS_ON_FILL_PRICE_MISSING":
             "The Stop Loss on fill specified does not provide a price",
@@ -494,16 +503,16 @@ definitions = {
             "The Stop Loss on fill specifies an invalid price",
         "STOP_LOSS_ON_FILL_PRICE_PRECISION_EXCEEDED":
             "The Stop Loss on fill specifies a price with more precision "
-            "than is allowed by the Order’s instrument",
+            "than is allowed by the Order's instrument",
         "STOP_LOSS_ON_FILL_GUARANTEED_MINIMUM_DISTANCE_NOT_MET":
             "An attempt to create a pending Order was made with the "
-            "distance between the guaranteed Stop Loss Order on fill’s price "
-            "and the pending Order’s price is less than the Account’s "
+            "distance between the guaranteed Stop Loss Order on fill's price "
+            "and the pending Order's price is less than the Account's "
             "configured minimum guaranteed stop loss distance.",
         "STOP_LOSS_ON_FILL_GUARANTEED_LEVEL_RESTRICTION_EXCEEDED":
             "An attempt to create a pending Order was made with a guaranteed "
-            "Stop Loss Order on fill configured, and the Order’s units "
-            "exceed the Account’s configured guaranteed StopLoss Order level "
+            "Stop Loss Order on fill configured, and the Order's units "
+            "exceed the Account's configured guaranteed StopLoss Order level "
             "restriction volume.",
         "STOP_LOSS_ON_FILL_DISTANCE_INVALID":
             "The Stop Loss on fill distance is invalid",
