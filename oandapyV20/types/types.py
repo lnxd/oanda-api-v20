@@ -37,7 +37,7 @@ class AccountID(OAType):
 
     def __init__(self, accountID):
         l = re.match(r"(?P<siteID>\d+)-(?P<divisionID>\d+)"
-                     "-(?P<userID>\d+)-(?P<accountNumber>\d+)", accountID)
+                     r"-(?P<userID>\d+)-(?P<accountNumber>\d+)", accountID)
         if not l:
             msg = "AccountID {} not a valid V20 account".format(accountID)
             raise ValueError(msg)
@@ -120,9 +120,9 @@ class DateTime(OAType):
 
         if isinstance(dateTime, str):
             l = re.match(r"(?P<year>\d+)-(?P<month>\d+)-(?P<day>\d+)"
-                         "T(?P<hour>\d+):(?P<minute>\d+):(?P<second>\d+)"
-                         "(?:.(?P<subsecond>\d{1,6})|)"
-                         "Z",
+                         r"T(?P<hour>\d+):(?P<minute>\d+):(?P<second>\d+)"
+                         r"(?:.(?P<subsecond>\d{1,6})|)"
+                         r"Z",
                          dateTime)
 
             if not l:

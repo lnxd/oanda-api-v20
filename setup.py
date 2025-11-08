@@ -47,6 +47,10 @@ setup(name='oandapyV20',
             'Programming Language :: Python :: 3.7',
             'Programming Language :: Python :: 3.8',
             'Programming Language :: Python :: 3.9',
+            'Programming Language :: Python :: 3.10',
+            'Programming Language :: Python :: 3.11',
+            'Programming Language :: Python :: 3.12',
+            'Programming Language :: Python :: 3.13',
       ],  # Get from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       keywords='OANDA FOREX/CFD wrapper REST-V20 API',
       author='F. Brekeveld',
@@ -58,7 +62,4 @@ setup(name='oandapyV20',
       include_package_data=True,
       zip_safe=False,
       install_requires=requirements,
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
       )

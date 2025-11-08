@@ -20,8 +20,7 @@ Or alternatively install the latest development version from github::
     $ pip install git+https://github.com/hootnot/oanda-api-v20.git
 
 
-You may consider using *virtualenv* to create isolated Python environments. Python 3.4 has *pyvenv* providing
-the same kind of functionality.
+You may consider using *virtualenv* to create isolated Python environments.
 
 
 Download from Github

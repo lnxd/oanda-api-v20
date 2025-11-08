@@ -32,7 +32,7 @@ def granularity_to_time(s):
         'W': 604800,
     }
     try:
-        f, n = re.match("(?P<f>[SMHDW])(?:(?P<n>\d+)|)", s).groups()
+        f, n = re.match(r"(?P<f>[SMHDW])(?:(?P<n>\d+)|)", s).groups()
         n = n if n else 1
         return mfact[f] * int(n)
 

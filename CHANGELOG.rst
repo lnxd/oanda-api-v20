@@ -1,6 +1,21 @@
 Changelog
 =========
 
+v0.7.3 (2025-11-08)
+-------------------
+
+Bug Fixes
+~~~~~~~~~
+
+-  [endpoints] fix invalid escape sequences in decorators
+-  [types] fix invalid escape sequences in regex patterns
+
+Administration and Chores
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  [build] add pyproject.toml for PEP 517/518 compatibility
+-  [versions] add Python 3.10-3.13 support
+
 [Unreleased]
 ------------
 
