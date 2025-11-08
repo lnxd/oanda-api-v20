@@ -26,7 +26,7 @@ def dyndoc_insert(src):
         docsub = {}
         sub = {}
         for k in allSlots:
-            p = re.findall("^(_v3.*)_(.*)", k)
+            p = re.findall(r"^(_v3.*)_(.*)", k)
             p = list(*p)
             sub.update({p[1]: p[0]})
 
