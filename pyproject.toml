@@ -8,7 +8,7 @@ version = "0.7.3"
 description = "OANDA REST V20 API wrapper"
 readme = "README.rst"
 requires-python = ">=3.6"
-license = {text = "MIT"}
+license = "MIT"
 keywords = ["OANDA", "FOREX/CFD", "wrapper", "REST-V20", "API"]
 authors = [
     {name = "Feite Brekeveld", email = "f.brekeveld@gmail.com"}
